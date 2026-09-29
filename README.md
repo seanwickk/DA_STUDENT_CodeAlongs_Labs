@@ -1,5 +1,5 @@
 # Data Analytics Code-Alongs & Labs
-
+WE here 4 the Win u HEARDDDD
 This is your working repo for code-alongs (from lecture) and labs
 (in-class practice) — starter files you actually type into, not a reference
 you just read.
