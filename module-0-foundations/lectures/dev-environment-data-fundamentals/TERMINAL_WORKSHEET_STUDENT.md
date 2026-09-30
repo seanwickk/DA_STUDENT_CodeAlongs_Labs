@@ -1,6 +1,6 @@
 # Dev Environment & Data Fundamentals
 
-**Module 0: Foundations**
+**Module 0: Foundations** food feelgi
 
 **Learning Objectives:**
 - Have a working terminal, git, and VS Code setup on your own machine
