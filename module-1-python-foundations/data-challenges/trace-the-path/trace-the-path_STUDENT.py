@@ -85,7 +85,7 @@ with open("volunteer_shifts.txt") as f:
 #
 # If the two differ, say which line you mis-read. Do not edit the
 # prediction.
-
+'''
 with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
               if line and not line.startswith("#")]
@@ -98,7 +98,7 @@ for shift in shifts:
     if None:
         # TODO: this is the counting line. Move long_shifts on by one.
         long_shifts = None
-
+'''
 print("shifts of 4+ hours:", long_shifts)
 
 # Your answer:
