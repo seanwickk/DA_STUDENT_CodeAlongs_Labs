@@ -41,7 +41,7 @@ SUBMIT
 #  before you write any code. The worksheet's "The Data" section
 #  shows how to load it.
 ############################################################################
-with open("data/volunteer_shifts.txt") as f:
+with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
               if line and not line.startswith("#")]
 # 1. What does one row represent?
