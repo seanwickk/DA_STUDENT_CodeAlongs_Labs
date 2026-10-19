@@ -1,5 +1,6 @@
 # Riverside Community Center - volunteer shift log, week of Mar 3
-# one line per completed shift:  volunteer,day,hours
+# one line per completed shift:  
+volunteer,day,hours
 Amara,Mon,3
 Luis,Mon,2
 Amara,Tue,4
