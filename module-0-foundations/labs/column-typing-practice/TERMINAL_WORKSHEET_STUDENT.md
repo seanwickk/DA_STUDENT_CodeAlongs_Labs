@@ -21,7 +21,7 @@ You've just joined a data team, and someone drops `data/energy_sample.csv` in yo
 - **Classify All Seven Columns, Each With a Reason Drawn From the Data**
 
 - **Confirm How Many Rows and How Many Countries You Actually Have**
-  - *Hint: `sort` and `uniq -c` are new, and they work together: `uniq -c` counts repeats, but only ones sitting next to each other, so the values have to be sorted first.*
+  - *Hint: `sort` and `c` are new, and they work together: `uniq -c` counts repeats, but only ones sitting next to each other, so the values have to be sorted first.*
 
 - **Check Whether Every Country Reports Every Column — Then Name Two Collection Concerns**
 
