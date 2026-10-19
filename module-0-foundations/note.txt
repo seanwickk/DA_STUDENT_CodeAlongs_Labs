@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 \nthis is another new line.
+=======
+Great class today, the git demo finally clicked for me! 
+This is a new line. 
+
+This is another new line.
+ This is another new line. 
+This is another new line. 
+>>>>>>> abf7f7b268f9c93ec64672b01c215d5727faab3e
