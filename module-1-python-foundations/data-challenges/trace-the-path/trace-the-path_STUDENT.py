@@ -44,17 +44,17 @@ SUBMIT
 
 # 1. What does one row represent?
 # Your answer:
-#
+# Each row represents a single volunteer shift.
 #
 
 # 2. Which fields hold numbers, and which hold text?
 # Your answer:
-#
+# Hours is a number, volunteer and day are text.
 #
 
 # 3. What already looks wrong, missing or inconsistent?
 # Your answer:
-#
+# amount of people per day is inconsistent, some days have 2 people others have 4.
 #
 
 ############################################################################
