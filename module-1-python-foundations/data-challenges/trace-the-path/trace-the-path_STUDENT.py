@@ -98,9 +98,9 @@ for shift in shifts:
     if None:
         # TODO: this is the counting line. Move long_shifts on by one.
         long_shifts = None
-'''
-print("shifts of 4+ hours:", long_shifts)
 
+print("shifts of 4+ hours:", long_shifts)
+'''
 # Your answer:
 #
 #
