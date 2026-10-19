@@ -86,7 +86,7 @@ with open("volunteer_shifts.txt") as f:
 # If the two differ, say which line you mis-read. Do not edit the
 # prediction.
 
-with open("data/volunteer_shifts.txt") as f:
+with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
               if line and not line.startswith("#")]
 
