@@ -44,16 +44,16 @@ SUBMIT
 
 # 1. What does one row represent?
 # Your answer:
-#
+# people who signed up names for rec center class.
 #
 
 # 2. Which fields hold numbers, and which hold text?
-# Your answer:
+# Your answer:sessions is a number, the rest are text.
 #
 #
 
 # 3. What already looks wrong, missing or inconsistent?
-# Your answer:
+# Your answer: the fact everry class in the rec center is on the text file instead individual files.
 #
 #
 

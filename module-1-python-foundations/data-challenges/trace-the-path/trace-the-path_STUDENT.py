@@ -85,23 +85,24 @@ with open("volunteer_shifts.txt") as f:
 #
 # If the two differ, say which line you mis-read. Do not edit the
 # prediction.
-'''
+
 with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
               if line and not line.startswith("#")]
 
 long_shifts = 0
-for shift in shifts:
+for shift in shifts[1:]:
     hours = int(shift.split(",")[2])
-     if hours >= 4:
-            long_shifts += 1
+    if hours >=4:
+       long_shifts += 1
 
-print(long_shifts)
-    if hours >= 4:
-        long_shifts += 1 
+print("shifts of 4+ hours", long_shifts)
 
-print("shifts of 4+ hours:", long_shifts)
-'''
+#print(long_shifts)
+     #if hours >= 4:
+       # long_shifts += 1 
+#print("shifts of 4+ hours", long_shifts)
+
 # Your answer:
 #
 #
@@ -216,6 +217,7 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 # Both loops run clean, with no traceback from either. Only one of them is
 # right.
 
+'''
 buggy_seen = 0
 for i in range(len(shifts) - 1):
     buggy_seen = buggy_seen + 1
@@ -223,7 +225,7 @@ for i in range(len(shifts) - 1):
 fixed_seen = 0
 # TODO: write the loop header that visits EVERY row, not all but one.
 #       The body below is already correct. Only the range changes.
-for i in None:
+for i in NONE:
     fixed_seen = fixed_seen + 1
 
 print("rows in the file:   ", len(shifts))
@@ -232,7 +234,7 @@ print("fixed loop visited: ", fixed_seen)
 # TODO: print the one row the buggy loop never reached. Reach into the
 #       list by position; do not retype the row by hand.
 print("the row it never saw:", None)
-
+'''
 # ----- Share Out: Day 2 -----
 # Last 15 minutes, back together as a class. Bring:
 #
