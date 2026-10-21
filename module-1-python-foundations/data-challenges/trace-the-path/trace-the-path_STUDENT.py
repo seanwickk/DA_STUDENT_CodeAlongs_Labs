@@ -93,11 +93,12 @@ with open("volunteer_shifts.txt") as f:
 long_shifts = 0
 for shift in shifts:
     hours = int(shift.split(",")[2])
-    # TODO: write the test for a long shift. The coordinator counts a
-    #       shift of 4 hours or more.
-    if None:
-        # TODO: this is the counting line. Move long_shifts on by one.
-        long_shifts = None
+     if hours >= 4:
+            long_shifts += 1
+
+print(long_shifts)
+    if hours >= 4:
+        long_shifts += 1 
 
 print("shifts of 4+ hours:", long_shifts)
 '''

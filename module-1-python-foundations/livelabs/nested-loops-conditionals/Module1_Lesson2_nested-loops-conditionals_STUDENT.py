@@ -39,6 +39,9 @@ print('----- 1. Nested Loop, Live -----')
 #                         outside and range(2) on the inside. How many lines
 #                         print?
 # Your answer:
+for row in range(2,10,2):  #(start,end,step)  # TODO: change the range to print 0, 2, 4, 6, 8
+    for col in range(4):
+        print(row)
 #
 #
 #
@@ -56,7 +59,7 @@ print('----- 2. Nested Conditional, Live -----')
 # TODO: check operation first; if it's "ADD", nest a second
 # check confirming quantity is greater than 0
 operation = "ADD"
-quantity = -5
+quantity = -5 
 
 # DISCUSS: Suppose the inner quantity check in the Nested Conditional code
 #          never seems to run. What should you trace first? Try it: set
@@ -64,7 +67,14 @@ quantity = -5
 # Your answer:
 #
 #
+if operation == "ADD":
+        if quantity > 0:
+                print( "Valid add")
+        else:
+              print("Invalid quantity")
 
+    
+        
 
 # ===== 3. Putting It Together: Loop + Nested Conditional =====
 # Check each transaction line and print whether it is valid, has an invalid
@@ -79,5 +89,12 @@ transactions = ["ADD 10", "REMOVE 3", "ADD -5"]
 #                         "ADD -5" as invalid: operation == "ADD", amount > 0,
 #                         or operation == "REMOVE"?
 # Your answer:
-#
-#
+for item in transactions:
+        operation,quantity = item.split()
+         quantity = int(quantity)
+        if operation == "ADD":
+                if quantity > 0:
+                        print("Valid add")
+                else:
+                        print("Invalid quantity")
+                     
