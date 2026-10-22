@@ -91,7 +91,7 @@ with open("volunteer_shifts.txt") as f:
               if line and not line.startswith("#")]
 
 long_shifts = 0
-for shift in shifts[1:]:
+for shift in shifts[0:]:
     hours = int(shift.split(",")[2])
     if hours >=4:
        long_shifts += 1
@@ -126,14 +126,15 @@ print("shifts of 4+ hours", long_shifts)
 # That printed line per pass is a tracing tool, not decoration.
 
 total = 0
-for shift in shifts:
+for shift in shifts[0:]:
     volunteer, day, hours = shift.split(",")
     # TODO: add this shift's hours onto the running total. Mind the
     #       type: everything that came out of that split is a string.
-    total = None
+    hours = int(hours)   
+    total += (hours)
     # TODO: print one line per pass: the day, the volunteer, and the
     #       total so far. This printed line IS the tracing tool.
-    print(day, volunteer, "| running total:", None)
+    print(day, volunteer, "| running total:", total)
 
 print("total hours logged this week:", total)
 
@@ -184,16 +185,16 @@ days = []
 for shift in shifts:
     volunteer, day, hours = shift.split(",")
     # TODO: only append a volunteer this list does not already have.
-    if None:
+    if volunteer not in volunteers:
         volunteers.append(volunteer)
     # TODO: the same test again, for the day.
-    if None:
+    if day not in days:
         days.append(day)
 
 checks = 0
 for volunteer in volunteers:
     # TODO: the inner loop. One pass per weekday, for each volunteer.
-    for day in None:
+    for day in days:
         checks = checks + 1
 
 print(len(volunteers), "volunteers x", len(days), "days =", checks)
@@ -217,7 +218,7 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 # Both loops run clean, with no traceback from either. Only one of them is
 # right.
 
-'''
+
 buggy_seen = 0
 for i in range(len(shifts) - 1):
     buggy_seen = buggy_seen + 1
@@ -225,7 +226,7 @@ for i in range(len(shifts) - 1):
 fixed_seen = 0
 # TODO: write the loop header that visits EVERY row, not all but one.
 #       The body below is already correct. Only the range changes.
-for i in NONE:
+for i in range(len(shifts)):
     fixed_seen = fixed_seen + 1
 
 print("rows in the file:   ", len(shifts))
@@ -233,8 +234,8 @@ print("buggy loop visited: ", buggy_seen)
 print("fixed loop visited: ", fixed_seen)
 # TODO: print the one row the buggy loop never reached. Reach into the
 #       list by position; do not retype the row by hand.
-print("the row it never saw:", None)
-'''
+print("the row it never saw:", shifts[-1])
+
 # ----- Share Out: Day 2 -----
 # Last 15 minutes, back together as a class. Bring:
 #
