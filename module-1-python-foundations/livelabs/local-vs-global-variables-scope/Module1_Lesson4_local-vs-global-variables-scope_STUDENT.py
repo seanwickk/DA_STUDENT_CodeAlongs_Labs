@@ -41,10 +41,15 @@ print('----- 1. Local Scope, Live -----')
 
 # DISCUSS: Now try a new function. set_x() runs and sets x = 5 inside it, but
 #          print(x) outside raises NameError. Why?
-# Your answer:
-#
-#
+# Your answer
 
+def make_total():
+    total = 100
+    return total * 100
+
+make_total()
+x = make_total()
+print(x)
 
 # ===== 2. Reading a Global, Live =====
 # Work out the price of a $100 item with 8% tax, using a tax rate stored
@@ -59,7 +64,14 @@ print('----- 2. Reading a Global, Live -----')
 #          does it break there?
 # Your answer:
 #
-#
+
+
+tax_rate = .08
+def price_with_tax(price):
+   x = price + (price * tax_rate)
+   return x
+
+print(price_with_tax (5.00))
 
 
 # ===== 3. Refactor: Global to Parameter =====
@@ -68,4 +80,10 @@ print('----- 2. Reading a Global, Live -----')
 print('----- 3. Refactor: Global to Parameter -----')
 # TODO: rewrite price_with_tax so tax_rate is a parameter
 # instead of a global it secretly reads
-tax_rate = 0.08
+#tax_rate = 0.08
+
+def price_with_tax(price, tax_rate):
+   return price + (price * tax_rate)
+
+  
+print(price_with_tax(20,tax_rate))

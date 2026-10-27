@@ -2,7 +2,7 @@
 """Data Challenge: Trace the Path
 GitBook Quest 1.1: Trace the Path
 
-HOW TO RUN
+ HOW TO RUN
     Open a terminal in the folder that holds data/ and run:
         python3 trace-the-path_STUDENT.py
     If this file sits one folder below data/, run it from the folder

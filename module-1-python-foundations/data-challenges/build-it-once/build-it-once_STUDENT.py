@@ -283,15 +283,22 @@ log_signup_broken(signups[2])
 # Three function names. Everything else is yours.
 
 def sessions_in(record):
-    pass
+    return int(record.split(",")[2])
+
 
 def signups_for(records, member):
-    pass
+    matches = []
+    for record in records:
+        if record.split(",")[0] == member:
+            matches.append(record)
+    return matches
 
 def total_for(records, member):
     # This one should get its work done by calling the other two.
-    pass
-
+    total = 0
+    for record in signups_for(records, member):
+        total += sessions_in(record)
+    return total
 # TODO: print a line per member
 
 # ===== Step 6: Run total_for() on Five Inputs Nobody Asked For, Then Judge Each Answer =====
