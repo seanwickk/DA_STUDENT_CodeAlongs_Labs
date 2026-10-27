@@ -287,18 +287,14 @@ def sessions_in(record):
 
 
 def signups_for(records, member):
-    matches = []
-    for record in records:
-        if record.split(",")[0] == member:
-            matches.append(record)
-    return matches
+    memeberx = []
+    for i in records:
+        rec = i.split(",")[0]
+        if rec == members
+        memeberx.append(i)
+        return memeberx
 
-def total_for(records, member):
-    # This one should get its work done by calling the other two.
-    total = 0
-    for record in signups_for(records, member):
-        total += sessions_in(record)
-    return total
+print(signups_for(signups, "Tess"))
 # TODO: print a line per member
 
 # ===== Step 6: Run total_for() on Five Inputs Nobody Asked For, Then Judge Each Answer =====
@@ -325,11 +321,20 @@ def total_for(records, member):
 # asked for, and write a verdict beside each printed result.
 
 # TODO: an empty list
+print("empty list:", total_for([], "Nia"))
 # TODO: a list holding exactly one record
+first_member = signups[0].split(",")[0]
+print("one record:", total_for([signups[0]], first_member))
 # TODO: a member name that is not in the file at all
+print("Marco:", total_for(signups, "Marco"))
 # TODO: a name that differs from a real member's only by capitalization
+print("Marco:", total_for(signups, "Marco"))
 # TODO: then: do the per-member totals add up to the whole-file total?
-
+members = ["Nia", "Omar", "Tess", "Rafi", "Gwen"]
+per_member_sum = 0
+for m in members:
+    per_member_sum += total_for(signups, m)
+print("sum of members:", per_member_sum, "| whole file:", total_sessions(signups))
 # ----- Share Out: Day 3 -----
 # Last 15 minutes, back together as a class. Bring:
 #
