@@ -46,12 +46,18 @@ print("comparisons to find T999:", scan_for("T999", taps))
 for size in [5, 10, 20, 40]:
     worst = scan_for("T999", taps[:size])
     print ("rows:", size , "| worst-case comparisons:", worst)
-    pairs = 0
-    for pair in taps:
+pairs = 0
+for pair in taps:
+     for tap in taps:
+         pairs += 1
+print(len(taps), pairs) 
+big = len(taps) * 10
+print("worst case:", big, "pair loop:", big * big) 
+        m 
 
-        
 
-    # TODO: print "rows:", `size`, "| worst-case comparisons:", `worst`
+
+# TODO: print "rows:", `size`, "| worst-case comparisons:", `worst`
 # TODO: assign `pairs` to 0; loop over `taps` with a loop over `taps` inside
 # TODO: add 1 to `pairs` in the inner loop
 # TODO: print len(taps) and `pairs`
@@ -68,13 +74,41 @@ for size in [5, 10, 20, 40]:
 
 # Step 3: Count Taps Per Card With Two Parallel Lists, and Their Comparisons
 # TODO: assign `card_ids` to an empty list (each card, first-seen order)
+card_ids = []
+
 # TODO: assign `tap_counts` to an empty list (the count for card_ids[i])
+tap_counts = []
 # TODO: assign `comparisons` to 0
+comparisons = 0
 # TODO: loop over `taps`; assign `card` to row[1] and `found` to False
+for topic in taps:
+    card = rows[1]
+    found = False
+    for i in range(len(card_ids)):
+        comparisons = comparisons +1
+        if card_ids[i] == card:
+            tap_counts[i] += 1
+            found = True
+            break
+    if not found:
+        card_ids.append(card)
+        tap_counts.append(1)
+
+
+    
 # TODO: inside it, loop over range(len(card_ids)); add 1 to `comparisons`
 # TODO: if card_ids[i] == card, add 1 to tap_counts[i], set found, break
 # TODO: after the inner loop, if not found, append `card` and 1 to the lists
-'''
+
+
+
+
+
+
+
+
+
+
 busiest = tap_counts.index(max(tap_counts))
 print("distinct cards:", len(card_ids))
 print("comparisons the two parallel lists needed:", comparisons)
@@ -84,16 +118,37 @@ print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
 #
 # Step 3, answer 2:
 #
-'''
+
 
 # Step 4: Count Taps Per Card With a Dictionary, and Stations With a Set
 # TODO: assign `taps_by_card` to an empty dict (card ID: tap count)
+taps_by_card = {}
 # TODO: assign `lookups` to 0
+lookups = 0
 # TODO: loop over `taps`; add 1 to `lookups`
+for row in taps:
+    lookups += 1
+    if row[1] in taps_by_card:
+        taps_by_card[row[1]] += 1
+    else:
+        taps_by_card[row[1]] =1
+stations = set()
+for row in taps:
+    stations.add(row[2])
+
+repeat_riders = 0
+for count in taps_by_card.values():
+    if count > 1:
+        repeat_riders += 1
+
+    
 # TODO: add 1 to row[1]'s count in `taps_by_card`, or set it to 1 if new
+
 # TODO: assign `stations` to set(); loop over `taps` and .add() row[2]
 # TODO: assign `repeat_riders` to 0
 # TODO: loop over `taps_by_card`; add 1 to `repeat_riders` if a count is > 1
+# {47:000, 50:000}
+
 
 print("distinct cards:", len(taps_by_card))
 print("lookups the dictionary needed:", lookups)
@@ -117,10 +172,10 @@ print("taps for C001:", taps_by_card["C001"])
 # TODO: replace each None with your Day 2 value; keep `stations` a set
 summary = {
     "service_day": "2026-03-02",
-    "total_taps": None,
-    "distinct_cards": None,
-    "stations": None,
-    "taps_by_card": None,
+    "total_taps": len(taps),
+    "distinct_cards": len(taps_by_card),
+    "stations": stations,
+    "taps_by_card": taps_by_card,
 }
 
 print("about to serialize", len(summary), "keys")
@@ -141,8 +196,13 @@ print(text)
 # TODO: assign summary["stations"] to a type JSON can hold; keep the key
 # TODO: json.dump() `summary` into a with open("tap_summary.json", "w")
 # TODO: replace None with json.load() of "tap_summary.json"
-reloaded = None
+summary["stations"] = sorted(stations)
 
+with open("tape_summary.json","w") as f:
+    json.dump(summary, f, indent=2)
+
+with open("tap_summary.json") as f:
+    reloaded = json.load(f)
 print("total_taps came back as:", reloaded["total_taps"])
 print("taps_by_card came back as a", type(reloaded["taps_by_card"]).__name__)
 print("C001 straight out of the file:", reloaded["taps_by_card"]["C001"])
