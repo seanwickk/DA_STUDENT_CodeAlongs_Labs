@@ -12,6 +12,9 @@ with open(DATA_FILE, newline="") as f:
 
 # Step 1: Write `find_linear()` to Return the Member and Its Comparisons
 def find_linear(members, member_id):
+    comparison = 0
+    for member in members:
+
     # TODO: assign `comparisons` to 0
     # TODO: loop over `members`; add 1 to `comparisons` for every row
     # TODO: inside the loop, return row, comparisons on a member_id match
