@@ -1,0 +1,10 @@
+{
+  "records": 1,
+  "total_pounds": 25.0,
+  "by_day": {
+    "2026-09-01": {
+      "donations": 1,
+      "pounds": 25.0
+    }
+  }
+}
