@@ -32,17 +32,39 @@ SUBMIT
 # A new stakeholder need. Not the board-game or office-supply domain from
 # lecture, and not one of the project's own 4 scenarios.
 
+    
+       
+               
+
+ 
+
+
+        
+
+
 # Your answer:
-#
+# Tools_keeper has become the name for my classification since it aligns with my job
 #
 
 # ===== Step 2: Decide Your Attributes, Each With a Reason From the Scenario =====
+     
 
 # Your answer:
-#
-#
+# I have chosen those atributes since it helps me idenify a specific tool, given their name, avability, and if a repaiir is needed.
 
 # ===== Step 3: Write __init__ and a Method, From Scratch =====
+class Tools_keeper:
+    def __init__(self, Power_tool, Status_for_use, Status_for_maintenance):
+        self.Power_tool = Power_tool
+        self.status_for_use = Status_for_use
+        self.status_for_maintenance = Status_for_maintenance
+        return
+
+    def Mantain(self):
+        if self.status_for_maintenance == True:
+            return "yes needed repair"
+        else:
+            return "all good"
 # There is no single correct design here. Your class name, your attribute
 # names and your method can all differ from everyone else's and still be
 # right. The test is whether each one traces back to the stakeholder
@@ -55,9 +77,12 @@ SUBMIT
 # yourself. Predict what each print() will show before you run it.
 
 # TODO: Instantiate 2+ Objects, Confirm Independent Storage
-
+drill = Tools_keeper("Drill", 3, True)
+ladders = Tools_keeper("Ladders", 2, False,)
+pressure_washer = Tools_keeper("Pressure Washer", 7, True,)
+Tools = [drill, ladders, pressure_washer]
 # ===== Step 5: Justify Your Design Choice in 2-3 Sentences =====
-
+print(drill.Mantain()) # It will print needed repair since the boolen is true statement
 # Your answer:
 #
 #
