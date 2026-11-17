@@ -82,9 +82,9 @@ ladders = Tools_keeper("Ladders", 2, False,)
 pressure_washer = Tools_keeper("Pressure Washer", 7, True,)
 Tools = [drill, ladders, pressure_washer]
 # ===== Step 5: Justify Your Design Choice in 2-3 Sentences =====
-print(drill.Mantain()) # It will print needed repair since the boolen is true statement
+print("DRILL", drill.Mantain()) # It will print needed repair since the boolen is true statement
 # Your answer:
-#
+# I picked to create a list instead of a JSON file since it was simpler to map out and identify what I want from the list. JSON kept giving me errors and I was running in circles. I also wanted each value for my power tools to be easily analyzed as well, that's why I've chosen 3 attributes for each power tool.
 #
 
 # ----- Share Out -----
@@ -107,5 +107,12 @@ print(drill.Mantain()) # It will print needed repair since the boolen is true st
 # Be ready to answer "why did you do it that way?"
 
 # Your notes for the share out:
+## One attribute I did consider was an ID field for each individual tool, but that felt like it would require
+# about 10x the coding since I’d have to define one for every different tool. The method I went with instead
+# lets the user quickly see whether maintenance is required for that category of power tools. That check
+# should be one of the first things that happens, since they shouldn’t be handing out power tools if they
+# aren’t cleaned it’s a real hazard.
 #
+# I definitely got stuck early on deciding how to format the data. At first I thought JSON would be easier
+# to manage, but I was completely wrong. I had a much simpler time working with a plain list.
 #
