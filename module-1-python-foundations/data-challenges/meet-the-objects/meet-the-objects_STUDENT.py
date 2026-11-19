@@ -61,7 +61,7 @@ class Station:
 
 fleet = []
 for s in stations:
-    fleet.append(Station(s["name"], s["capacity"], s["bikes_available"]))
+    fleet.append(Station( s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"], s["station_id"]))
 busy = fleet[0]
 quiet = fleet[2]
 #print(busy.needs_restocks())
@@ -152,7 +152,7 @@ for s in stations:
 van_list = []
 
 for needed_help in fleet:
-    if needed_help.needs_restock():
+    if needed_help.needs_restocks():
         van_list.append(needed_help)
 
 
