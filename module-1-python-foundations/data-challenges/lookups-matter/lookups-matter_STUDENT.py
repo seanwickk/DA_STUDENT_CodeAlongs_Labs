@@ -42,11 +42,14 @@ with open (CHECKINS_FILE) as f:
 linear_total = 0
 not_members = 0
 for member_id in swipes:
-    results= find_linear(members, member_id)
-    
-    
-else:
-    not_members +=1
+    row, comparison = find_linear(members, member_id)
+    if row is None:                    # not found
+        name = "NOT A MEMBER"
+        not_members += 1
+    else:
+        name = row["name"]
+        print(member_id, name, comparison)
+    linear_total += comparison
 
     
 
@@ -64,12 +67,19 @@ print("swipes:", len(swipes), "| not members:", not_members)
 print("linear total comparisons:", linear_total)
 
 # Step 2, answer 1:
-#
+#3 seconds i would say and each not member would be a second as well
 # Step 2, answer 2:
-#
+# i would say the last code would take the longest since they must run through everything else
 
 
 # Step 3: Build `members_by_id` and Find the Swipe Where It Pays Off
+members_by_id = {}
+build_steps = 0
+for row in members:
+    members_by_id[row["member_id"]] = row
+    build_steps +=1
+def find_dict(members_by_id, member_id):
+    return members_by_id.get(member_id), 1
 # TODO: assign `members_by_id` to an empty dict and `build_steps` to 0
 # TODO: loop over `members`; store each row under row["member_id"]
 # TODO: add 1 to `build_steps` for every row
@@ -79,13 +89,24 @@ print("linear total comparisons:", linear_total)
 print("build cost:", build_steps, "| keys in the dict:", len(members_by_id))
 
 # TODO: assign `linear_running` to 0 and `dict_running` to build_steps
+linear_running = 0
+dict_running = build_steps
+pays_off_at = None
+swipe_number = 0
 # TODO: assign `pays_off_at` to None and `swipe_number` to 0
 for member_id in swipes:
+    swipe_number +=1
     # TODO: add 1 to `swipe_number`
     _, linear_count = find_linear(members, member_id)
     _, dict_count = find_dict(members_by_id, member_id)
+    linear_running += linear_count
+    dict_running += dict_count
+    print (swipe_number, "the id", member_id, "linear", linear_count, "dict", dict_running)
     # TODO: add each search's count to its running total
     # TODO: print swipe_number, the ID and both running totals
+    if pays_off_at is None and dict_running < linear_running:
+        pays_off_at = swipe_number
+        
     # TODO: the first time dict_running < linear_running, set `pays_off_at`
 
 print("dict pays off at swipe:", pays_off_at)
