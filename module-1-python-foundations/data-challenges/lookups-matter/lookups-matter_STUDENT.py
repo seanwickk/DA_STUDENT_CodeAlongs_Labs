@@ -9,17 +9,22 @@ CHECKINS_FILE = "door_checkins.txt"  # edit the filepath with the data
 with open(DATA_FILE, newline="") as f:
     members = list(csv.DictReader(f))
 
-
+# One row represents one single person 
+# Joined_on_home is a numeric field
+# The same name popping up with different last name
 # Step 1: Write `find_linear()` to Return the Member and Its Comparisons
 def find_linear(members, member_id):
     comparison = 0
-    for member in members:
+    for row in members:
+        comparison +=1
 
     # TODO: assign `comparisons` to 0
     # TODO: loop over `members`; add 1 to `comparisons` for every row
+        if row["member_id"] == member_id:
+            return row, comparison
     # TODO: inside the loop, return row, comparisons on a member_id match
     # TODO: after the loop, return None, comparisons
-    pass
+    return None, comparison
 
 
 row, count = find_linear(members, "M1150")
@@ -28,10 +33,25 @@ print("found:", row["name"], "at", row["home_branch"])
 print("comparisons:", count)
 
 # Step 1, answer 1:
-#
+# my predication is thomas member address will show up
 
 
 # Step 2: Total the Comparisons for All 20 Swipes in `door_checkins.txt`
+with open (CHECKINS_FILE) as f:
+    swipes = f.read().splitlines()
+linear_total = 0
+not_members = 0
+for member_id in swipes:
+    results= find_linear(members, member_id)
+    
+    
+else:
+    not_members +=1
+
+    
+
+
+
 # TODO: open CHECKINS_FILE in a with block as `f`
 # TODO: inside it, assign `swipes` to f.read().splitlines()
 # TODO: assign `linear_total` and `not_members` to 0

@@ -78,7 +78,7 @@ SUBMIT
 # The arithmetic is the same arithmetic a plain loop would do. What changes
 # is that the answer comes back to you instead of going to the screen.
 
-with open("data/rec_center_signups.txt") as f:
+with open("rec_center_signups.txt") as f:
     signups = [line for line in f.read().splitlines()
                if line and not line.startswith("#")]
 
@@ -216,6 +216,9 @@ sessions_cutoff = 2
 # the steps after it can run.
 
 def log_signup(record, previous_member):
+    name = record.split(",")[0]
+    print("previous:", previous_member, "| this:", name)
+    return name
     # TODO: pull the member name out of `record`
     # TODO: print the previous member and this one on one line
     # TODO: return this member's name
@@ -224,8 +227,8 @@ def log_signup(record, previous_member):
 last_member = "nobody yet"
 # TODO: call log_signup on signups[0], then on signups[1], storing
 # what it returns back into last_member each time
-
-last_seen = "nobody yet"
+'''
+last_seen = 0
 
 def log_signup_broken(record):
     # Leave this body exactly as written. It is supposed to raise.
@@ -234,7 +237,7 @@ def log_signup_broken(record):
     return last_seen
 
 log_signup_broken(signups[2])
-
+'''
 # Your answer:
 #
 #
@@ -290,8 +293,8 @@ def signups_for(records, member):
     memeberx = []
     for i in records:
         rec = i.split(",")[0]
-        if rec == members
-        memeberx.append(i)
+        if rec == member:
+            memeberx.append(i)
         return memeberx
 
 print(signups_for(signups, "Tess"))
@@ -319,7 +322,7 @@ print(signups_for(signups, "Tess"))
 
 # No new functions. Call the ones you already have, on inputs nobody
 # asked for, and write a verdict beside each printed result.
-
+total_for = []
 # TODO: an empty list
 print("empty list:", total_for([], "Nia"))
 # TODO: a list holding exactly one record
