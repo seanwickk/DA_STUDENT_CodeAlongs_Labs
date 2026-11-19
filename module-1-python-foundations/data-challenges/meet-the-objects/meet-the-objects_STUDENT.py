@@ -118,9 +118,9 @@ print(fleet[0])
 print(fleet[:2])
 
 # Step 3, answer 1:
-#
+#i would expect comma to shape it
 # Step 3, answer 2:
-#
+#the method used is need_restock
 
 
 # Step 4: Add `__repr__` and Print the Van List for You and the Dispatcher
@@ -161,7 +161,7 @@ for station in van_list:
     print(station)
 
 # Step 4, answer 1:
-#
+# .need_restock is the method
 # Step 4, answer 2:
 # __str__ is used to be printed for views while __repr__ provide information for programmer or the computer to read and also use.
 # Step 4, answer 3:
