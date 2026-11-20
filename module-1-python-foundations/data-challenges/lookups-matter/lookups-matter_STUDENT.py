@@ -48,7 +48,7 @@ for member_id in swipes:
         not_members += 1
     else:
         name = row["name"]
-        print(member_id, name, comparison)
+    print(member_id, name, comparison)
     linear_total += comparison
 
     
@@ -113,18 +113,21 @@ print("dict pays off at swipe:", pays_off_at)
 print("morning totals | linear:", linear_running, "| dict:", dict_running)
 
 # Step 3, answer 1:
-#
+# 
 # Step 3, answer 2:
-#
+# The door does the same job over and over: take an ID and find that member.
 # Step 3, answer 3:
-#
+#332 mornings
 
 
 # Step 4: Test an AI Speed Claim Against Your Totals and Write a Verdict
 # TODO: replace the text below with your AI's claim, word for word
-ai_claim = "TODO: paste what your AI actually told you"
+ai_claim = "For 20 lookups across 312 rows, a pre-built dictionary lookup is roughly 100x to 150x faster than a linear search "
 print("AI CLAIM:", ai_claim)
 
+_, front_count = find_linear(swipes[0])
+_, absent_count = find_linear("M1313")
+ratio = round(linear_running / dict_running, 1)
 # TODO: unpack find_linear() for swipes[0] into `_, front_count`
 # TODO: unpack find_linear() for "M1313" into `_, absent_count`
 # TODO: assign `ratio` to round(linear_running / dict_running, 1)
@@ -135,10 +138,10 @@ print("whole morning | linear:", linear_running, "| dict:", dict_running,
       "| ratio:", ratio)
 
 # TODO: replace the text below with your own verdict
-verdict = "REPLACE ME"
+verdict = "inear search ties a dict when an item is right at the start of the list"
 print("VERDICT:", verdict)
 
 # Step 4, answer 1:
-#
+# 
 # Step 4, answer 2:
-#
+#No
