@@ -125,8 +125,8 @@ print("morning totals | linear:", linear_running, "| dict:", dict_running)
 ai_claim = "For 20 lookups across 312 rows, a pre-built dictionary lookup is roughly 100x to 150x faster than a linear search "
 print("AI CLAIM:", ai_claim)
 
-_, front_count = find_linear(swipes[0])
-_, absent_count = find_linear("M1313")
+_, front_count = find_linear(members, swipes[0])
+_, absent_count = find_linear(members, "M1313")
 ratio = round(linear_running / dict_running, 1)
 # TODO: unpack find_linear() for swipes[0] into `_, front_count`
 # TODO: unpack find_linear() for "M1313" into `_, absent_count`
