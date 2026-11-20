@@ -17,6 +17,7 @@ with open(DATA_FILE) as f:
 # TODO: wrap that value in int() so add_hours() adds a number
 # TODO: delete the print(repr(hours)) line once Rosa's total is right
 def add_hours(total, hours):
+    
     return total + hours
 
 
@@ -25,14 +26,14 @@ def weekly_hours(lines, emp_id):
     for row in lines[1:]:
         parts = row.split(",")
         if parts[0] == emp_id:
-            total = add_hours(total, parts[2])
+            total = add_hours(total, int(parts[3]))
     return total
 
 
 print("Rosa Alvarez, weekly hours:", weekly_hours(lines, "E101"))
 
 # Step 1, answer 1:
-#
+# one row shows a employee clocking into work with a special id, name, hours, and pay rate.
 # Step 1, answer 2:
 #
 # Step 1, answer 3:
