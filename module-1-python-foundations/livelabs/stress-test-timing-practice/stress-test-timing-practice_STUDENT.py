@@ -33,6 +33,20 @@ SUBMIT
 # objects, not a shared template's.
 
 # TODO: Generate Batches of Your Own Day 15 Class at Three Sizes (10, 1,000, and 100,000)
+class number_work:
+    def __init__(self, numbers_100, numbers_1000, numbers_1000000):
+        self.numbers_100 = numbers_100
+        self.numbers_1000 = numbers_1000
+        self.numbers_1000000 = numbers_1000000
+
+
+batches = [
+    number_work(10, 1000, 100000),
+    number_work(200, 2000, 2000000),
+    number_work(300, 3000, 3000000)
+    
+]
+    
 
 # ===== Step 2: Write Two Searches Over That Batch - a Linear Scan and a Dict Lookup - and Confirm They Agree =====
 # Same two functions Day 16's lecture wrote over SupplyItem - now over your
@@ -40,6 +54,15 @@ SUBMIT
 
 # TODO: Write Two Searches Over That Batch - a Linear Scan and a Dict Lookup - and Confirm They Agree
 
+def linear_scan(batches, numbers_100):
+    for items in batches:
+        if items.numbers_100 == numbers_100:
+            return items
+        
+    return None
+
+Numeric_display = linear_scan(batches, 200)
+print(Numeric_display.numbers_100,)
 # ===== Step 3: Put a Stopwatch on Both Searches at All Three Sizes and Record the Numbers =====
 # Predict the pattern before running: which column should grow as size
 # grows, and which should stay roughly flat?
