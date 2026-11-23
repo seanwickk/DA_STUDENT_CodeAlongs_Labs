@@ -61,6 +61,14 @@ def linear_scan(batches, numbers_100):
         
     return None
 
+def dict_lookup(batches, numbers_100):
+    for item in batches:
+        if item.get(numbers_100) is not None:
+            return item
+    return None
+
+
+
 Numeric_display = linear_scan(batches, 200)
 print(Numeric_display.numbers_100,)
 # ===== Step 3: Put a Stopwatch on Both Searches at All Three Sizes and Record the Numbers =====
@@ -68,7 +76,14 @@ print(Numeric_display.numbers_100,)
 # grows, and which should stay roughly flat?
 
 # TODO: Put a Stopwatch on Both Searches at All Three Sizes and Record the Numbers
+import time
 
+input("start time")
+Start_time = time.perf_counter()
+input("end time")
+end_time = time.perf_counter()
+total = end_time - Start_time
+print(total, "seconds")
 # ===== Step 4: Answer Your Manager's Question in One Sentence, in Big-O Terms =====
 
 # Your answer:
