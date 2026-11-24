@@ -193,9 +193,14 @@ print("what show_long_bookings handed back:", handed_back)
 sessions_cutoff = 4
 
 def count_reaching_outside(records):
-    # TODO: same count as count_long_bookings, but take NO minimum
-    # parameter. Read sessions_cutoff from outside the function instead.
-    pass
+    count = 0
+    for record in records:
+        fields = record.split(",")
+        if int(fields[2]) > sessions_cutoff:
+                count += 1
+    return count
+    
+
 
 print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
 
@@ -203,6 +208,8 @@ sessions_cutoff = 2
 
 # TODO: call count_reaching_outside(signups) again, unchanged, and print it
 # TODO: print count_long_bookings(signups, 4) underneath for comparison
+print (count_reaching_outside(signups))
+print (count_long_bookings(signups, 4))
 
 # ===== Step 4: Pass the Last Member In and Out, Then Trigger an UnboundLocalError =====
 # The coordinator wants each sign-up printed next to the one before it. The
@@ -232,12 +239,13 @@ sessions_cutoff = 2
 
 def log_signup(record, previous_member):
     name = record.split(",")[0]
+    
     print("previous:", previous_member, "| this:", name)
     return name
     # TODO: pull the member name out of `record`
     # TODO: print the previous member and this one on one line
     # TODO: return this member's name
-    pass
+
 
 last_member = "nobody yet"
 # TODO: call log_signup on signups[0], then on signups[1], storing
