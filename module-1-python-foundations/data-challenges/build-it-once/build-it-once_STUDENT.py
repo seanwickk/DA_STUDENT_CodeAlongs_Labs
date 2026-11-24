@@ -133,7 +133,7 @@ def show_long_bookings(records, minimum):
         fields = record.split(",")
         if int(fields[2]) >= minimum:
             count += 1
-    return count
+    print (count)
     # TODO: print a sentence with the same count in it. Only print.
     pass
 
@@ -144,7 +144,7 @@ handed_back = show_long_bookings(signups, 4)
 print("what show_long_bookings handed back:", handed_back)
 
 # Your answer:
-#
+# Printing can only be designed once and best option seems to be outside the function while return can be used numerous times through inside and outside of the function.
 #
 
 # ----- Share Out: Day 1 -----
