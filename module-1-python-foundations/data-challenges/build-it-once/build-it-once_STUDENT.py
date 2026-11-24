@@ -83,12 +83,17 @@ with open("rec_center_signups.txt") as f:
                if line and not line.startswith("#")]
 
 def total_sessions(records):
-    # TODO: add up the sessions column across every record in `records`
-    # TODO: hand the total back to whoever called this. Do not print it.
-    pass
+    session_amount = 0
+    for record in records:
+        parts = record.split(",")
+        session_amount += int(parts[2])
+    return session_amount
+        
 
-swim_only = []
-# TODO: fill swim_only with just the Swim records
+
+swim_only = [record for record in signups if record.split(",")[1] == "Swim"]
+
+
 
 print("every class:", total_sessions(signups))
 print("swim only:  ", total_sessions(swim_only))
@@ -114,11 +119,21 @@ print("swim only:  ", total_sessions(swim_only))
 # other only puts something on the screen.
 
 def count_long_bookings(records, minimum):
-    # TODO: count the records whose sessions number is `minimum` or more
-    # TODO: return the count
-    pass
+    count = 0
+    for record in records:
+        fields = record.split(",")
+        if int(fields[2]) >= minimum:
+            count += 1
+    return count
+
 
 def show_long_bookings(records, minimum):
+    count = 0
+    for record in records:
+        fields = record.split(",")
+        if int(fields[2]) >= minimum:
+            count += 1
+    return count
     # TODO: print a sentence with the same count in it. Only print.
     pass
 
