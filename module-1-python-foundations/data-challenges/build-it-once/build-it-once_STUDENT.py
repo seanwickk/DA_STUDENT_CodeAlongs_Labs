@@ -133,7 +133,7 @@ def show_long_bookings(records, minimum):
         fields = record.split(",")
         if int(fields[2]) >= minimum:
             count += 1
-    print (count)
+    print(f"There are {count} long bookings.")
     # TODO: print a sentence with the same count in it. Only print.
     pass
 
@@ -196,7 +196,7 @@ def count_reaching_outside(records):
     count = 0
     for record in records:
         fields = record.split(",")
-        if int(fields[2]) > sessions_cutoff:
+        if int(fields[2]) >= sessions_cutoff:
                 count += 1
     return count
     
@@ -248,6 +248,8 @@ def log_signup(record, previous_member):
 
 
 last_member = "nobody yet"
+last_member = log_signup(signups[0], last_member)
+last_member = log_signup(signups[1], last_member)
 # TODO: call log_signup on signups[0], then on signups[1], storing
 # what it returns back into last_member each time
 
@@ -313,13 +315,22 @@ def sessions_in(record):
 
 
 def signups_for(records, member):
-    memeberx = []
-    for i in records:
-        rec = i.split(",")[0]
-        if rec == member:
-            memeberx.append(i)
-        return memeberx
+    member_records = []
+    for record in records:
+        name = record.split(",")[0]
+        if name == member:
+            member_records.append(record)
+    return member_records
 
+def total_for(records, member):
+    their_records = signups_for(records, member)
+    
+    
+    total = 0
+    for record in their_records:
+        total += sessions_in(record)
+    
+    return total
 print(signups_for(signups, "Tess"))
 # TODO: print a line per member
 
@@ -345,21 +356,23 @@ print(signups_for(signups, "Tess"))
 
 # No new functions. Call the ones you already have, on inputs nobody
 # asked for, and write a verdict beside each printed result.
-Total_for = []
+
 # TODO: an empty list
-print("empty list:", Total_for([], "Nia"))
+print("empty list:", total_for([], "Nia"))
 # TODO: a list holding exactly one record
 first_member = signups[0].split(",")[0]
-print("one record:", Total_for([signups[0]], first_member))
+print("one record:", total_for([signups[0]], first_member))
 # TODO: a member name that is not in the file at all
-print("Marco:", Total_for(signups, "Marco"))
+print("Marco:", total_for(signups, "Marco")) # just a number that did not
 # TODO: a name that differs from a real member's only by capitalization
-print("Marco:", Total_for(signups, "Marco"))
+print("nia (lowercase):", total_for(signups, "nia")) # just a number that did not crash
+
+print("Rafi:", total_for(signups, "Rafi"))
 # TODO: then: do the per-member totals add up to the whole-file total?
 members = ["Nia", "Omar", "Tess", "Rafi", "Gwen"]
 per_member_sum = 0
 for m in members:
-    per_member_sum += Total_for(signups, m)
+    per_member_sum += total_for(signups, m)
 print("sum of members:", per_member_sum, "| whole file:", total_sessions(signups))
 # ----- Share Out: Day 3 -----
 # Last 15 minutes, back together as a class. Bring:
