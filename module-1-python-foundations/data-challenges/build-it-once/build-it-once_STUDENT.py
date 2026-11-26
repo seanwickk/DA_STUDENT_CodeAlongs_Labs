@@ -250,9 +250,9 @@ def log_signup(record, previous_member):
 last_member = "nobody yet"
 # TODO: call log_signup on signups[0], then on signups[1], storing
 # what it returns back into last_member each time
-'''
-last_seen = 0
 
+last_seen = 0
+'''
 def log_signup_broken(record):
     # Leave this body exactly as written. It is supposed to raise.
     print("previous:", last_seen)
@@ -262,7 +262,7 @@ def log_signup_broken(record):
 log_signup_broken(signups[2])
 '''
 # Your answer:
-#
+# i expect the first function to never show in my terminal since i don't actually call it for use, and also the second one will raise a error since the value is given after the print
 #
 
 # ----- Share Out: Day 2 -----
@@ -345,21 +345,21 @@ print(signups_for(signups, "Tess"))
 
 # No new functions. Call the ones you already have, on inputs nobody
 # asked for, and write a verdict beside each printed result.
-total_for = []
+Total_for = []
 # TODO: an empty list
-print("empty list:", total_for([], "Nia"))
+print("empty list:", Total_for([], "Nia"))
 # TODO: a list holding exactly one record
 first_member = signups[0].split(",")[0]
-print("one record:", total_for([signups[0]], first_member))
+print("one record:", Total_for([signups[0]], first_member))
 # TODO: a member name that is not in the file at all
-print("Marco:", total_for(signups, "Marco"))
+print("Marco:", Total_for(signups, "Marco"))
 # TODO: a name that differs from a real member's only by capitalization
-print("Marco:", total_for(signups, "Marco"))
+print("Marco:", Total_for(signups, "Marco"))
 # TODO: then: do the per-member totals add up to the whole-file total?
 members = ["Nia", "Omar", "Tess", "Rafi", "Gwen"]
 per_member_sum = 0
 for m in members:
-    per_member_sum += total_for(signups, m)
+    per_member_sum += Total_for(signups, m)
 print("sum of members:", per_member_sum, "| whole file:", total_sessions(signups))
 # ----- Share Out: Day 3 -----
 # Last 15 minutes, back together as a class. Bring:
